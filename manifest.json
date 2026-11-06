@@ -1,0 +1,12 @@
+{
+    "name": "YH Alarm",
+    "short_name": "YH Alarm",
+    "description": "منبّه YH",
+    "start_url": "./",
+    "scope": "./",
+    "display": "standalone",
+    "background_color": "#101010",
+    "theme_color": "#101010",
+    "lang": "ar",
+    "dir": "rtl"
+}

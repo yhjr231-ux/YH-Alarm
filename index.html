@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#151329">
+    <meta name="description" content="YH Alarm - منبّهك الشخصي">
+
+    <title>YH Alarm</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+
+    <header class="app-header">
+        <h1>YH Alarm</h1>
+        <p>منبّهك الشخصي</p>
+    </header>
+
+    <main>
+
+        <section class="clock-section">
+            <p id="current-date">جاري تحميل التاريخ...</p>
+
+            <div id="current-time" class="current-time">
+                00:00:00
+            </div>
+
+            <p class="clock-label">الوقت الحالي</p>
+        </section>
+
+        <section class="alarms-section">
+
+            <div class="section-header">
+    <h2>منبّهاتي</h2>
+
+    <div class="header-actions">
+        
+
+        <button id="add-alarm" class="add-button">
+            + إضافة منبّه
+        </button>
+    </div>
+</div>
+
+            <div id="alarms-list" class="alarms-list">
+
+                <div class="empty-state">
+                    <p>لا توجد منبّهات حتى الآن</p>
+                    <span>أضف منبّهك الأول!</span>
+                </div>
+
+            </div>
+
+
+<div id="alarm-modal" class="modal hidden">
+    <div class="modal-content">
+
+        <h2 id="alarm-modal-title">إضافة منبّه جديد</h2>
+        <label for="alarm-name">اسم المنبّه</label>
+        <input
+            type="text"
+            id="alarm-name"
+            placeholder="مثلاً: منبّه المدرسة"
+        >
+
+        <label for="alarm-time">وقت المنبّه</label>
+        <input type="time" id="alarm-time">
+
+        <label for="alarm-repeat">تكرار المنبّه</label>
+        <select id="alarm-repeat">
+            <option value="daily">كل يوم</option>
+            <option value="specific">أيام محددة</option>
+            <option value="once">مرة واحدة</option>
+            
+        </select>
+
+        <div id="days-container" class="days-container hidden">
+            <label>اختر أيام التكرار</label>
+
+            <div class="days-grid">
+                <label><input type="checkbox" value="0"> الأحد</label>
+                <label><input type="checkbox" value="1"> الاثنين</label>
+                <label><input type="checkbox" value="2"> الثلاثاء</label>
+                <label><input type="checkbox" value="3"> الأربعاء</label>
+                <label><input type="checkbox" value="4"> الخميس</label>
+                <label><input type="checkbox" value="5"> الجمعة</label>
+                <label><input type="checkbox" value="6"> السبت</label>
+            </div>
+        </div>
+        <h3>⏰ مدة التأجيل</h3>
+
+<label for="snooze-duration">مدة الغفوة</label>
+<select id="snooze-duration">
+    <option value="5">5 دقائق</option>
+    <option value="10">10 دقائق</option>
+    <option value="15">15 دقيقة</option>
+    <option value="20">20 دقيقة</option>
+</select>
+<div class="alarm-sound-settings">
+
+    <h3>🔔 إعدادات صوت المنبّه</h3>
+
+    <label for="alarm-sound">صوت المنبّه</label>
+
+    <select id="alarm-sound">
+
+    <optgroup label="🎵 الأصوات الجاهزة">
+
+        <option value="default">Dreamcore Alarm Clock</option>
+
+        <option value="digital">Oversimplified Alarm Clock</option>
+
+        <option value="gentle">Clock Alarm</option>
+
+        <option value="birds">Morning Birds</option>
+
+    </optgroup>
+
+    <option value="custom">🎵 اختيار صوت من الجهاز</option>
+
+</select>
+
+       
+    </select>
+
+<input
+    type="file"
+    id="custom-sound-file"
+    accept="audio/*"
+    hidden
+>
+
+<p id="selected-sound-name"></p>
+
+    <button id="preview-sound" type="button">
+        ▶ معاينة الصوت
+    </button>
+
+</div>
+        <div class="modal-buttons">
+            <button id="save-alarm">حفظ المنبّه</button>
+            <button id="cancel-alarm">إلغاء</button>
+        </div>
+
+    </div>
+</div>
+
+
+        </section>
+
+    </main>
+<div id="ringing-modal" class="modal hidden">
+    <div class="modal-content ringing-content">
+        <h2>⏰ المنبّه يرن!</h2>
+
+        <h3 id="ringing-alarm-name"></h3>
+        <p id="ringing-alarm-time"></p>
+
+        <div class="modal-buttons">
+            <button id="snooze-alarm">غفوة</button>
+            <button id="stop-alarm">إيقاف</button>
+        </div>
+    </div>
+</div>
+    <footer>
+        <p>YH Alarm © 2026</p>
+    </footer>
+
+    
+
+<div id="delete-modal" class="modal hidden">
+    <div class="modal-content delete-content">
+        <div class="delete-icon">!</div>
+
+        <h2>تأكيد الحذف</h2>
+
+        <p>هل أنت متأكد أنك تريد حذف هذا المنبّه؟</p>
+
+        <div class="modal-buttons">
+            <button id="confirm-delete">نعم، احذف</button>
+            <button id="cancel-delete">إلغاء</button>
+        </div>
+    </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
